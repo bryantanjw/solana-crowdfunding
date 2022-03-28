@@ -8,19 +8,24 @@ const Footer = () => (
       <Stack justify="space-between" direction="row" align="center">
         <Text>Built by Bryan Tan</Text>
         <ButtonGroup variant="ghost">
-          <IconButton
-            as="a"
-            href="#"
-            aria-label="LinkedIn"
-            icon={<FaLinkedin fontSize="1.25rem" />}
-          />
-          <IconButton as="a" href="#" aria-label="GitHub" icon={<FaGithub fontSize="1.25rem" />} />
-          <IconButton
-            as="a"
-            href="#"
-            aria-label="Twitter"
-            icon={<FaTwitter fontSize="1.25rem" />}
-          />
+            <IconButton
+                as="a"
+                href="https://www.linkedin.com/in/bryantan1/"
+                aria-label="LinkedIn"
+                icon={<FaLinkedin fontSize="1.25rem" />}
+            />
+            <IconButton 
+                as="a" 
+                href="https://github.com/bryantanjw" 
+                aria-label="GitHub" 
+                icon={<FaGithub fontSize="1.25rem" />} 
+            />
+            <IconButton
+                as="a"
+                href="https://twitter.com/bryantanjw"
+                aria-label="Twitter"
+                icon={<FaTwitter fontSize="1.25rem" />}
+            />
         </ButtonGroup>
       </Stack>
     </Stack>
