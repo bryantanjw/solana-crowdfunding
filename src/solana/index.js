@@ -43,6 +43,7 @@ export async function signAndSendTransaction(wallet, connection,
     }
 }
 
+// Implementation of the Rust struct 'CampaignDetails'
 export class CampaignDetails {
     constructor(properties) {
         Object.keys(properties).forEach((key) => {
@@ -83,6 +84,7 @@ export async function createCampaign(wallet, connection, name, description, imag
     const lamports =
         (await connection.getMinimumBalanceForRentExemption(data.length));
     console.log(data.length);
+    // Create the instruction to create the program account
     const createProgramAccount = SystemProgram.createAccountWithSeed({
         fromPubkey: wallet.publicKey,
         basePubkey: wallet.publicKey,
@@ -110,9 +112,10 @@ export async function createCampaign(wallet, connection, name, description, imag
     console.log("end sendMessage", result);
 }
 
-
 export async function getAllCampaigns(connection) {
+    // Fetch all program accounts
     let accounts = await connection.getProgramAccounts(programId);
+
     let x = []
     accounts.forEach((e) => {
         try {
@@ -131,7 +134,6 @@ export async function getAllCampaigns(connection) {
     });
     return x;
 }
-
 
 
 export async function donateToCampaign(wallet, connection,
@@ -194,6 +196,7 @@ export async function withdraw(wallet, connection,
 ) {
     let withdrawRequest = new WithdrawRequest({ amount: amount });
     let data = serialize(WithdrawRequest.schema, withdrawRequest);
+    // '1' is the entrypoint for calling 'withdraw' function
     let data_to_send = new Uint8Array([1, ...data]);
 
     const instructionTOOurProgram = new TransactionInstruction({
