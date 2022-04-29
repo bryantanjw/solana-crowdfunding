@@ -51,5 +51,8 @@
   },
   "devDependencies": {
     "eslint-config-react": "^1.1.7"
+  },
+  "browser": {
+    "crypto": false
   }
 }
